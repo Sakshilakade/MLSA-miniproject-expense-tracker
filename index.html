@@ -1,0 +1,82 @@
+<!--
+Create a modern Expense Tracker web application using HTML, CSS, and JavaScript in separate files.
+
+Requirements:
+- Add expense (amount + category)
+- Show total expenses
+- Delete expenses
+- Display all expenses in a clean layout
+- Generate category-wise summary
+- Track daily expenses
+- Set daily expense limit and show alert
+- Filter expenses by date
+- Save data using localStorage
+- Download data as CSV file
+- Display simple text-based chart and line chart
+- Apply modern UI design with gradient background
+
+Copilot was used to generate the base structure, styling, and logic.
+Further modifications were made to improve UI and add features like expense limit, date filtering, and chart visualization.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Expense Tracker Plus</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>💰 Expense Tracker Plus</h1>
+    <p class="quote">"Track smart. Spend wiser. Build better habits 💡"</p>
+
+    <!-- Add Expense -->
+    <div class="input-box">
+        <input id="amount" type="number" placeholder="💵 Enter amount">
+
+        <select id="category">
+            <option>🍔 Food</option>
+            <option>✈ Travel</option>
+            <option>🛍 Shopping</option>
+            <option>📦 Other</option>
+        </select>
+
+        <button onclick="addExpense()">➕ Add</button>
+        <button onclick="downloadCSV()">⬇ Download</button>
+    </div>
+
+    <!-- Expense Limit -->
+    <div class="extra-box">
+        <input id="limit" type="number" placeholder="🎯 Set daily limit">
+    </div>
+
+    <!-- Date Filter -->
+    <div class="filter-box">
+        <h4>📅 Track Expenses by Date</h4>
+        <p class="small-text">Select a date to view that day's expenses</p>
+
+        <input type="date" id="filterDate">
+        <button onclick="filterByDate()">🔍 Filter</button>
+        <button onclick="display()">🔄 Reset</button>
+    </div>
+
+    <h3>💸 Total: ₹<span id="total">0</span></h3>
+
+    <h3>📋 Expenses</h3>
+    <div id="list"></div>
+
+    <h3>📊 Summary</h3>
+    <div id="summary"></div>
+
+    <h3>📈 Daily Expense Chart</h3>
+    <canvas id="chart"></canvas>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
